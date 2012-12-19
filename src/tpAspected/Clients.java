@@ -8,7 +8,6 @@ public interface Clients {
 
 	Object getClient(int i);
 
-	void delClient(Client client) throws ClientHaveOrdersException;
-
+	void delClient(Client client);
 
 }

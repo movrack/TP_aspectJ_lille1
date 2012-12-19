@@ -4,12 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import tpAspected.Client;
-import tpAspected.ClientHaveOrdersException;
 import tpAspected.Clients;
 
 
 
-public class ClientsImpl implements Clients{
+public class ClientsImpl implements Clients {
 
 	private List<Client> clients;
 
@@ -30,8 +29,7 @@ public class ClientsImpl implements Clients{
 		this.clients.add(client);		
 	}
 
-	public void delClient(Client client) throws ClientHaveOrdersException{
-//		if(client.hasOrder()) throw new ClientHaveOrderseException();
+	public void delClient(Client client){
 		this.clients.remove(client);		
 	}
 

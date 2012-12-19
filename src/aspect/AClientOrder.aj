@@ -1,13 +1,16 @@
 import tpAspected.Client;
 import tpAspected.ClientHaveOrdersException;
 import tpAspected.ClientWithOrders;
+import tpAspected.ClientsWithOrders;
 import tpAspected.Order;
 import tpAspected.Orders;
 import tpAspected.impl.ClientImpl;
+import tpAspected.impl.ClientsImpl;
 
 aspect AClientOrder {
 
 	declare parents: ClientImpl implements ClientWithOrders;
+	declare parents: ClientsImpl implements ClientsWithOrders;
 
 	private Orders ClientImpl.orders;
 	public ClientImpl.new(Orders orders){
@@ -32,7 +35,7 @@ aspect AClientOrder {
 	}
 	
 
-	pointcut delClient(Client c): call( void tpAspected.Clients.delClient(Client) ) && args( c) ;
+	pointcut delClient(Client c): call( void tpAspected.ClientsWithOrders.delClient(Client) ) && args( c) ;
 
 	Object around(Client c) throws ClientHaveOrdersException: delClient(c) {
 		ClientWithOrders client = (ClientWithOrders) c;
