@@ -28,7 +28,7 @@ public class ClientsTests {
 	}
 
 	@Test
-	public void testDelClient() throws Exception {
+	public void testDelClientWithoutOrder() throws Exception {
 		Clients cList = new ClientsImpl();
 		Client client = mock(Client.class, withSettings().extraInterfaces(ClientWithOrders.class));
 		
